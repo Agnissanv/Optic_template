@@ -1,0 +1,428 @@
+/* ==========================================================================
+   1. VARIABLES & RESET (Le système de design)
+   ========================================================================== */
+   :root {
+    /* Palette de couleurs psychologiques */
+    --primary-color: #0A2540;    /* Bleu Nuit : Inspire la confiance, l'autorité et le côté "médical premium" */
+    --secondary-color: #CBAA5C;  /* Or/Sable : Apporte la touche luxe, style et chaleur */
+    --text-dark: #333333;        /* Gris très foncé pour une lisibilité parfaite sans fatiguer l'œil */
+    --text-light: #666666;
+    --bg-light: #F8F9FA;         /* Blanc cassé pour les fonds de section (plus doux que le blanc pur) */
+    --white: #FFFFFF;
+    
+    /* Espacements et Ombres (Pour la profondeur) */
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+    --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+    --transition: all 0.3s ease;
+    --border-radius: 8px;
+}
+
+/* Reset de base pour que le site soit identique sur tous les navigateurs */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Navigation fluide quand on clique sur un lien du menu */
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Typo moderne et propre */
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--white);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. TYPOGRAPHIE & BOUTONS (Les déclencheurs d'action)
+   ========================================================================== */
+h1, h2, h3 {
+    color: var(--primary-color);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; font-weight: 800; }
+h2 { font-size: 2rem; font-weight: 700; text-align: center; }
+p { margin-bottom: 1rem; color: var(--text-light); }
+
+.highlight {
+    color: var(--secondary-color);
+}
+
+/* Boutons orientés conversion (Bros, ronds, cliquables) */
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    cursor: pointer;
+    text-align: center;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px); /* Effet de soulèvement psychologique "clique-moi" */
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.btn-large { padding: 16px 32px; font-size: 1.1rem; }
+.btn-full { width: 100%; }
+
+/* ==========================================================================
+   3. HEADER / NAVIGATION
+   ========================================================================== */
+header {
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
+    position: sticky; /* Reste en haut au scroll : le CTA est toujours dispo ! */
+    top: 0;
+    z-index: 1000;
+    padding: 15px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo i { color: var(--secondary-color); }
+
+.nav-links {
+    display: none; /* Caché sur mobile pour la simplicité, on gardera juste le bouton RDV */
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover { color: var(--secondary-color); }
+
+/* ==========================================================================
+   4. SECTION HERO (L'impact visuel)
+   ========================================================================== */
+.hero {
+    padding: 60px 0;
+    background-image: linear-gradient(rgba(10, 37, 64, 0.7), rgba(10, 37, 64, 0.7)), url(/images/lun_presentation.jpg);
+    background-size: cover;          /* L'image couvre tout l'espace sans se déformer */
+    background-position: center;     /* Centre l'image pour qu'elle soit toujours bien cadrée */
+    background-repeat: no-repeat;    /* Empêche la répétition de l'image */
+    display: flex;
+    align-items: center;
+    min-height: 80vh; /* Prend presque tout l'écran */
+    
+}
+.hero h1, .hero p, .hero .badge, .hero .social-proof-micro span {
+    color: var(--white);
+}
+
+.reveal-hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.reveal-hidden.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.badge {
+    display: inline-block;
+    background-color: rgba(203, 170, 92, 0.1);
+    color: var(--secondary-color);
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero-actions {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-proof-micro {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.social-proof-micro i { color: #FFD700; } /* Étoiles dorées */
+
+/* ==========================================================================
+   5. SECTIONS EXPERTISE & AVIS
+   ========================================================================== */
+.expertise, .testimonials {
+    padding: 80px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services-grid, .reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 colonne sur mobile */
+    gap: 30px;
+}
+
+.service-card, .review-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: var(--transition);
+    border: 1px solid #eaeaea;
+}
+
+.service-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: var(--shadow-md);
+    border-color: var(--secondary-color);
+}
+
+.icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(10, 37, 64, 0.05);
+    color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    margin: 0 auto 20px;
+    transition: var(--transition);
+}
+
+.service-card:hover .icon-wrapper {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Nettoyage du texte des avis */
+.review-card p {
+    font-style: italic;
+    color: var(--text-dark);
+    margin: 20px 0;
+}
+
+.review-card .author {
+    font-size: 1rem;
+    color: var(--primary-color);
+}
+
+.stars {
+    color: #FFD700;
+    margin-bottom: 10px;
+}
+
+/* Responsive pour la grille d'avis */
+@media (min-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur desktop */
+    }
+}
+
+/* ==========================================================================
+   6. CONTACT & FORMULAIRE (La machine à convertir)
+   ========================================================================== */
+.contact-section {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 80px 0;
+}
+
+.contact-section h2, .contact-section p { color: var(--white); text-align: left; }
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+}
+
+.info-list { list-style: none; margin-top: 30px; }
+.info-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 15px; }
+.info-list i { color: var(--secondary-color); font-size: 1.2rem; }
+.info-list a { color: var(--white); text-decoration: none; }
+
+.form-card {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    color: var(--text-dark);
+}
+
+.form-card h3 { text-align: center; margin-bottom: 20px; }
+
+form input, form select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+form input:focus, form select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(10, 37, 64, 0.1);
+}
+
+/* Rendre la carte Google Maps responsive */
+.info-list iframe {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+}
+
+/* pied de page footer */
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-simple {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-brand h3 { color: var(--secondary-color); margin-bottom: 5px; }
+.footer-brand p { color: var(--white); opacity: 0.7; font-size: 0.9rem; margin: 0; }
+
+.footer-links {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9rem;
+}
+
+.footer-links a { color: var(--white); text-decoration: none; opacity: 0.8; }
+.footer-links a:hover { color: var(--secondary-color); }
+
+.footer-bottom {
+    padding-top: 20px;
+    font-size: 0.75rem;
+    opacity: 0.5;
+}
+
+/* Style du bloc Suivez-nous */
+.footer-social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-social p {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    margin: 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: var(--white);
+    font-size: 1.1rem;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Ajustement responsive pour aligner les 3 éléments sur PC */
+@media (min-width: 768px) {
+    .footer-simple { 
+        flex-direction: row; 
+        justify-content: space-between; 
+        text-align: left; 
+    }
+    .footer-social { align-items: flex-start; }
+}
+
+/* ==========================================================================
+   7. RESPONSIVE DESIGN (Tablettes et Ordinateurs)
+   ========================================================================== */
+@media (min-width: 768px) {
+    h1 { font-size: 3.5rem; }
+    
+    .nav-links { display: flex; } /* Affiche le menu sur grand écran */
+    
+    .services-grid, .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+    
+    .contact-container { grid-template-columns: 1fr 1fr; align-items: center; }
+    
+    .hero-actions { flex-direction: row; align-items: center; }
+}
