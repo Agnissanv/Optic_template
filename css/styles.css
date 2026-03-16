@@ -147,7 +147,7 @@ header {
    ========================================================================== */
 .hero {
     padding: 60px 0;
-    background-image: linear-gradient(rgba(10, 37, 64, 0.7), rgba(10, 37, 64, 0.7)), url(../images/lun_presentation.jpg);
+    background-image: linear-gradient(rgba(10, 37, 64, 0.7), rgba(10, 37, 64, 0.7)), url(/Optic_template/images/lun_presentation.jpg);
     background-size: cover;          /* L'image couvre tout l'espace sans se déformer */
     background-position: center;     /* Centre l'image pour qu'elle soit toujours bien cadrée */
     background-repeat: no-repeat;    /* Empêche la répétition de l'image */
