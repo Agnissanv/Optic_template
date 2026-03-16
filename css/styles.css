@@ -328,7 +328,6 @@ form input:focus, form select:focus {
     box-shadow: 0 0 0 3px rgba(10, 37, 64, 0.1);
 }
 
-/* Rendre la carte Google Maps responsive */
 .info-list iframe {
     max-width: 100%;
     height: auto;
@@ -425,4 +424,50 @@ footer {
     .contact-container { grid-template-columns: 1fr 1fr; align-items: center; }
     
     .hero-actions { flex-direction: row; align-items: center; }
+}
+
+
+
+
+
+
+
+
+/* ############################ */
+/* news Nos Montures */
+/* ############################ */
+.news-cont{
+    margin-top: 2rem;
+}
+.news-cont .box{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: var(--primary-color);
+}
+.news-cont .box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s ease-in-out;
+}
+
+.news-cont .box img:hover{
+    transform: translateY(-10px);
+}
+.news-cont .box .content{
+    position: absolute;
+    top: -100%;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: hsl(0, 0%, 91%,0.5);
+    overflow: hidden;
+    transition: .2s ease-in-out;
+}
+.news-cont .box:hover .content{
+    top: 0;
 }
