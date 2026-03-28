@@ -1,23 +1,21 @@
-/* ==========================================================================
-   1. VARIABLES & RESET (Le système de design)
-   ========================================================================== */
+   /* partie générale */
+   /* partie générale */
+   /* partie générale */
+   
    :root {
-    /* Palette de couleurs psychologiques */
-    --primary-color: #0A2540;    /* Bleu Nuit : Inspire la confiance, l'autorité et le côté "médical premium" */
-    --secondary-color: #CBAA5C;  /* Or/Sable : Apporte la touche luxe, style et chaleur */
-    --text-dark: #333333;        /* Gris très foncé pour une lisibilité parfaite sans fatiguer l'œil */
-    --text-light: #666666;
-    --bg-light: #F8F9FA;         /* Blanc cassé pour les fonds de section (plus doux que le blanc pur) */
-    --white: #FFFFFF;
+    --primary-color: #0A2540;    
+    --secondary-color: #CBAA5C;
+    --text-dark: #333333;        
+    --text-light: #666666;       
+    --bg-light: #F8F9FA;       
+    --white: #FFFFFF;          
     
-    /* Espacements et Ombres (Pour la profondeur) */
     --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
     --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
     --transition: all 0.3s ease;
     --border-radius: 8px;
 }
 
-/* Reset de base pour que le site soit identique sur tous les navigateurs */
 * {
     margin: 0;
     padding: 0;
@@ -25,11 +23,11 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Navigation fluide quand on clique sur un lien du menu */
+    scroll-behavior: smooth; 
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Typo moderne et propre */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
     color: var(--text-dark);
     line-height: 1.6;
     background-color: var(--white);
@@ -41,24 +39,33 @@ body {
     margin: 0 auto;
 }
 
-/* ==========================================================================
-   2. TYPOGRAPHIE & BOUTONS (Les déclencheurs d'action)
-   ========================================================================== */
 h1, h2, h3 {
     color: var(--primary-color);
     line-height: 1.2;
     margin-bottom: 1rem;
 }
 
-h1 { font-size: 2.5rem; font-weight: 800; }
-h2 { font-size: 2rem; font-weight: 700; text-align: center; }
-p { margin-bottom: 1rem; color: var(--text-light); }
+h1 { 
+    font-size: 2.5rem; 
+    font-weight: 800; 
+}
+h2 { 
+    font-size: 2rem; 
+    font-weight: 700; 
+    text-align: center; 
+}
+p { 
+    margin-bottom: 1rem; 
+    color: var(--text-light); 
+}
 
 .highlight {
     color: var(--secondary-color);
 }
 
-/* Boutons orientés conversion (Bros, ronds, cliquables) */
+/* les boutons */
+/* les boutons */
+/* les boutons */
 .btn-primary, .btn-secondary {
     display: inline-block;
     padding: 12px 24px;
@@ -79,7 +86,7 @@ p { margin-bottom: 1rem; color: var(--text-light); }
 
 .btn-primary:hover {
     background-color: var(--secondary-color);
-    transform: translateY(-2px); /* Effet de soulèvement psychologique "clique-moi" */
+    transform: translateY(-2px); 
     box-shadow: var(--shadow-md);
 }
 
@@ -97,9 +104,9 @@ p { margin-bottom: 1rem; color: var(--text-light); }
 .btn-large { padding: 16px 32px; font-size: 1.1rem; }
 .btn-full { width: 100%; }
 
-/* ==========================================================================
-   3. HEADER / NAVIGATION
-   ========================================================================== */
+/* le header (navigation) */
+/* le header (navigation) */
+/* le header (navigation) */
 header {
     background-color: var(--white);
     box-shadow: var(--shadow-sm);
@@ -142,31 +149,28 @@ header {
 
 .nav-links a:hover { color: var(--secondary-color); }
 
-/* ==========================================================================
-   4. SECTION HERO (L'impact visuel - Version Vidéo)
-   ========================================================================== */
+/* la section Hero */
+/* la section Hero */
+/* la section Hero */
 .hero {
     padding: 60px 0;
     display: flex;
     align-items: center;
     min-height: 80vh;
-    position: relative; /* INDISPENSABLE : Sert de point de repère pour la vidéo */
-    overflow: hidden;   /* Empêche la vidéo de déborder de la section */
+    position: relative; 
+    overflow: hidden;   
 }
 
-/* --- La magie de la vidéo en fond --- */
 .hero-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Remplit l'écran sans déformer, comme background-size: cover */
-    z-index: 0;        /* On la place tout au fond */
+    object-fit: cover; 
+    z-index: 0;        
 }
 
-/* --- Le filtre psychologique (L'overlay sombre) --- */
-/* Cela recrée ton effet linear-gradient pour que ton texte blanc reste lisible et classe */
 .hero::before {
     content: '';
     position: absolute;
@@ -175,13 +179,12 @@ header {
     width: 100%;
     height: 100%;
     background: linear-gradient(rgba(10, 37, 64, 0.7), rgba(10, 37, 64, 0.7));
-    z-index: 1; /* Se place au-dessus de la vidéo, mais sous le texte */
+    z-index: 1;
 }
 
-/* --- On s'assure que le contenu passe au premier plan --- */
 .hero-content {
     position: relative;
-    z-index: 2; /* Le texte et les boutons passent au-dessus de tout ! */
+    z-index: 2; 
 }
 
 .hero h1, .hero p, .hero .badge, .hero .social-proof-micro span {
@@ -227,11 +230,13 @@ header {
     gap: 5px;
 }
 
-.social-proof-micro i { color: #FFD700; } /* Étoiles dorées */
+.social-proof-micro i { 
+    color: #FFD700; 
+}
 
-/* ==========================================================================
-   5. SECTIONS EXPERTISE & AVIS
-   ========================================================================== */
+/* partie expertise et avis client */
+/* partie expertise et avis client */
+/* partie expertise et avis client */
 .expertise, .testimonials {
     padding: 80px 0;
 }
@@ -246,7 +251,7 @@ header {
 
 .services-grid, .reviews-grid {
     display: grid;
-    grid-template-columns: 1fr; /* 1 colonne sur mobile */
+    grid-template-columns: 1fr; 
     gap: 30px;
 }
 
@@ -285,7 +290,6 @@ header {
     color: var(--white);
 }
 
-/* Nettoyage du texte des avis */
 .review-card p {
     font-style: italic;
     color: var(--text-dark);
@@ -302,23 +306,25 @@ header {
     margin-bottom: 10px;
 }
 
-/* Responsive pour la grille d'avis */
 @media (min-width: 768px) {
     .reviews-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur desktop */
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* ==========================================================================
-   6. CONTACT & FORMULAIRE (La machine à convertir)
-   ========================================================================== */
+/* partie contact et formulaire */
+/* partie contact et formulaire */
+/* partie contact et formulaire */
 .contact-section {
     background-color: var(--primary-color);
     color: var(--white);
     padding: 80px 0;
 }
 
-.contact-section h2, .contact-section p { color: var(--white); text-align: left; }
+.contact-section h2, .contact-section p { 
+    color: var(--white); 
+    text-align: left; 
+}
 
 .contact-container {
     display: grid;
@@ -326,10 +332,24 @@ header {
     gap: 40px;
 }
 
-.info-list { list-style: none; margin-top: 30px; }
-.info-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 15px; }
-.info-list i { color: var(--secondary-color); font-size: 1.2rem; }
-.info-list a { color: var(--white); text-decoration: none; }
+.info-list { 
+    list-style: none; 
+    margin-top: 30px; 
+}
+.info-list li { 
+    margin-bottom: 15px; 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+}
+.info-list i { 
+    color: var(--secondary-color); 
+    font-size: 1.2rem; 
+}
+.info-list a { 
+    color: var(--white); 
+    text-decoration: none; 
+}
 
 .form-card {
     background-color: var(--white);
@@ -338,7 +358,10 @@ header {
     color: var(--text-dark);
 }
 
-.form-card h3 { text-align: center; margin-bottom: 20px; }
+.form-card h3 { 
+    text-align: center; 
+    margin-bottom: 20px; 
+}
 
 form input, form select {
     width: 100%;
@@ -363,7 +386,8 @@ form input:focus, form select:focus {
 }
 
 /* pied de page footer */
-
+/* pied de page footer */
+/* pied de page footer */
 footer {
     background-color: var(--primary-color);
     color: var(--white);
@@ -380,8 +404,16 @@ footer {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footer-brand h3 { color: var(--secondary-color); margin-bottom: 5px; }
-.footer-brand p { color: var(--white); opacity: 0.7; font-size: 0.9rem; margin: 0; }
+.footer-brand h3 { 
+    color: var(--secondary-color); 
+    margin-bottom: 5px; 
+}
+.footer-brand p { 
+    color: var(--white); 
+    opacity: 0.7; 
+    font-size: 0.9rem; 
+    margin: 0; 
+}
 
 .footer-links {
     display: flex;
@@ -389,8 +421,14 @@ footer {
     font-size: 0.9rem;
 }
 
-.footer-links a { color: var(--white); text-decoration: none; opacity: 0.8; }
-.footer-links a:hover { color: var(--secondary-color); }
+.footer-links a { 
+    color: var(--white); 
+    text-decoration: none; 
+    opacity: 0.8; 
+}
+.footer-links a:hover { 
+    color: var(--secondary-color); 
+}
 
 .footer-bottom {
     padding-top: 20px;
@@ -398,7 +436,6 @@ footer {
     opacity: 0.5;
 }
 
-/* Style du bloc Suivez-nous */
 .footer-social {
     display: flex;
     flex-direction: column;
@@ -429,7 +466,6 @@ footer {
     color: var(--secondary-color);
 }
 
-/* Ajustement responsive pour aligner les 3 éléments sur PC */
 @media (min-width: 768px) {
     .footer-simple { 
         flex-direction: row; 
@@ -438,32 +474,36 @@ footer {
     }
     .footer-social { align-items: flex-start; }
 }
-
-/* ==========================================================================
-   7. RESPONSIVE DESIGN (Tablettes et Ordinateurs)
-   ========================================================================== */
+/* pour le responsive */
+/* pour le responsive */
+/* pour le responsive */
 @media (min-width: 768px) {
-    h1 { font-size: 3.5rem; }
+    h1 { 
+        font-size: 3.5rem; 
+    }
     
-    .nav-links { display: flex; } /* Affiche le menu sur grand écran */
+    .nav-links { 
+        display: flex; 
+    }
     
-    .services-grid, .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+    .services-grid, .reviews-grid { 
+        grid-template-columns: repeat(3, 1fr); 
+    }
     
-    .contact-container { grid-template-columns: 1fr 1fr; align-items: center; }
+    .contact-container { 
+        grid-template-columns: 1fr 1fr; 
+        align-items: center; 
+    }
     
-    .hero-actions { flex-direction: row; align-items: center; }
+    .hero-actions { 
+        flex-direction: row; 
+        align-items: center; 
+    }
 }
 
-
-
-
-
-
-
-
-/* ############################ */
 /* news Nos Montures */
-/* ############################ */
+/* news Nos Montures */
+/* news Nos Montures */
 .news-cont{
     margin-top: 2rem;
 }
